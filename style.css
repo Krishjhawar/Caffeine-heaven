@@ -1,0 +1,463 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: url('https://static.vecteezy.com/system/resources/previews/023/010/450/non_2x/the-cup-of-latte-coffee-with-heart-shaped-latte-art-and-ai-generated-free-photo.jpg') no-repeat center center fixed;
+    background-size: cover;
+    overflow-x: hidden;
+    color: #fff;
+}
+
+.container {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    transition: background 0.5s ease;
+    position: relative;
+}
+
+.nav-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 80px;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+}
+
+.nav-bar.scrolled {
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.nav-bar .logo {
+    display: flex;
+    flex-direction: column;
+}
+
+.nav-bar .title {
+    font-family: "Protest Strike", system-ui;
+    font-weight: 200;
+    font-size: 20px;
+    color: #fff;
+    font-size: 50px; 
+    font-weight: 600;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.nav-bar .title:hover {
+    transform: scale(1.05);
+}
+
+span {
+    color: crimson;
+}
+
+.menu {
+    display: flex;
+    list-style: none;
+}
+
+.menu li {
+    margin: 0 20px;
+}
+
+.menu li a {
+    text-decoration: none;
+    font-family: "Protest Strike", system-ui;
+    font-weight: 400;
+    font-size: 20px;
+    color: #fff;
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    transition: color 0.3s ease, border 0.3s ease;
+}
+
+.menu li a:hover {
+    color: crimson;
+    border-bottom: 2px solid crimson;
+}
+
+.nav-toggle {
+    display: none;
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    width: 30px;
+    height: 25px;
+    justify-content: space-between;
+}
+
+.hamburger span {
+    height: 3px;
+    width: 100%;
+    background: #fff;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+.nav-toggle:checked + .hamburger span:nth-child(1) {
+    transform: rotate(45deg);
+    transform-origin: left;
+}
+
+.nav-toggle:checked + .hamburger span:nth-child(2) {
+    opacity: 0;
+}
+
+.nav-toggle:checked + .hamburger span:nth-child(3) {
+    transform: rotate(-45deg);
+    transform-origin: left;
+}
+
+.nav-toggle:checked ~ .menu {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.home {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+    padding-top: 80px;
+    position: relative;
+    overflow: hidden;
+}
+
+.welcome-message {
+    z-index: 2;
+}
+
+.title-1 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 60px;
+    margin-bottom: 20px;
+    animation: fadeIn 2s;
+}
+
+.title-1 span {
+    color: crimson;
+}
+
+.call-to-action {
+    margin-top: 20px;
+}
+
+.quote-container {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    z-index: 1;
+}
+
+.quote {
+    font-size: 24px;
+    font-family: 'Libre Baskerville', serif;
+    opacity: 0.7;
+    margin: 10px 0;
+    animation: slideUp 3s forwards;
+    animation-delay: 2s;
+    display: none;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideUp {
+    0% {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@media (max-width: 768px) {
+    .title-1 {
+        font-size: 40px;
+    }
+
+    .quote {
+        font-size: 18px;
+    }
+}
+
+.services {
+    padding: 60px 20px;
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+}
+
+.service-list {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.service-item {
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    width: 250px;
+    transition: transform 0.3s;
+}
+
+.service-item:hover {
+    transform: translateY(-5px);
+}
+
+.shop-now-button {
+    display: inline-block;
+    background-color: crimson;
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 12px;
+    text-decoration: none;
+    font-family: "Fjalla One", sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.shop-now-button:hover {
+    background-color: #c9302c;
+    transform: translateY(-3px);
+}
+
+h2, h3 {
+    text-align: center;
+    margin: 20px 0;
+}
+
+@media (max-width: 768px) {
+    .service-list {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .service-item {
+        width: 90%;
+    }
+}
+
+.products-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    padding: 20px 0;
+}
+
+.product-item {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 20px;
+    border-radius: 15px;
+    width: 250px;
+    transition: transform 0.3s ease, background 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    backdrop-filter: blur(100px);
+}
+
+ .product-item:hover {
+    transform: translateY(-10px);
+} 
+
+.product-item img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    margin-bottom: 10px;
+    border-radius: 50%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.product-item h3 {
+    font-family: 'Montserrat', sans-serif;
+    margin: 10px 0;
+}
+
+.product-item p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+}
+
+.services-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    padding: 20px 0;
+}
+
+.service-item {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 20px;
+    border-radius: 15px;
+    width: 250px;
+    transition: transform 0.3s ease, background 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    backdrop-filter: blur(100px);
+}
+
+.service-item:hover {
+    transform: translateY(-10px);
+}
+
+.service-item h3 {
+    font-family: 'Montserrat', sans-serif;
+    margin: 10px 0;
+}
+
+.service-item p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 15px;
+    width: 300px;
+    border: none;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    transition: border 0.3s;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 15px;
+    width: 400px; 
+    border: none;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    transition: border 0.3s;
+}
+
+.contact-form textarea {
+    height: 120px; 
+}
+
+
+.contact-form button {
+    background-color: crimson;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-family: "Fjalla One", sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.contact-form button:hover {
+    background-color: #c9302c;
+    transform: translateY(-3px);
+}
+#about p {
+    text-align: center;  
+    margin: 0 auto;      
+    width: 40%;          
+    backdrop-filter: blur(10px);
+}
+#about {
+    margin-bottom: 40px; 
+}
+
+
+
+.footer {
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer p {
+    margin: 10px 0;
+}
+
+.footer a {
+    color: crimson;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .contact-form input,
+    .contact-form textarea {
+        width: 90%;
+    }
+}
